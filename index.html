@@ -1,0 +1,408 @@
+<title>Maxus eDeliver 9 EV Ambulance</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&family=Barlow:wght@400;500;600;700&display=swap">
+<style>
+/* Layout concept: Farizon-style full-bleed automotive one-pager on white — black type, orange accent, black nav/footer bands */
+:root{
+  --bg:#ffffff;
+  --ink:#141414;
+  --muted:#5c5650;
+  --accent:#e0611c;
+  --accent-deep:#bf4e10;
+  --band:#121212;
+  --band-ink:#f5f2ee;
+  --line:#e8e2db;
+  --panel:#faf7f3;
+  --display:"Oswald","Barlow",system-ui,sans-serif;
+  --body:"Barlow","Segoe UI",system-ui,sans-serif;
+}
+body{background:var(--bg);color:var(--ink);font-family:var(--body);font-size:17px;line-height:1.6;margin:0}
+*{box-sizing:border-box}
+h1,h2,h3{font-family:var(--display);line-height:1.15;text-wrap:balance;margin:0}
+img{max-width:100%;display:block}
+.gutter{padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+.wrap{max-width:1100px;margin:0 auto}
+
+/* ---------- nav ---------- */
+nav{position:sticky;top:env(safe-area-inset-top,0px);z-index:50;background:#fff;border-bottom:1px solid var(--line)}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:60;background:#fff}
+nav .wrap{display:flex;align-items:center;gap:24px;min-height:62px;flex-wrap:wrap;padding-block:8px}
+.brand{display:flex;align-items:center;text-decoration:none}
+.brand img{height:48px;width:auto}
+.navlinks{display:flex;gap:4px;flex-wrap:wrap;margin-left:auto}
+.navlinks a{color:#3f3b37;text-decoration:none;font-size:14px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;padding:8px 10px}
+.navlinks a:hover{color:var(--accent)}
+
+/* ---------- hero ---------- */
+.hero{position:relative;overflow:hidden;background:#0c0c0c}
+.hero-bg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:72% center}
+.hero::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(6,6,6,.85) 0%,rgba(6,6,6,.55) 40%,rgba(6,6,6,.05) 70%)}
+.hero-inner{position:relative;z-index:1;display:flex;align-items:center;min-height:520px;padding-block:56px}
+.hero-copy{max-width:580px}
+.kicker{display:inline-flex;align-items:center;gap:10px;font-weight:700;font-size:13px;letter-spacing:.2em;text-transform:uppercase;color:var(--accent)}
+.kicker::before{content:"";width:26px;height:3px;background:var(--accent)}
+.hero h1{font-size:clamp(38px,6vw,64px);font-weight:600;text-transform:uppercase;letter-spacing:.015em;margin-top:10px;color:#fff}
+.hero h1 .model{color:var(--accent)}
+.hero p.tag{font-size:19px;color:#d9d3cc;margin:14px 0 26px;max-width:30em}
+.cta{display:inline-block;background:var(--accent);color:#fff;font-family:var(--display);font-weight:600;font-size:16px;letter-spacing:.12em;text-transform:uppercase;padding:13px 34px;text-decoration:none;transform:skewX(-8deg)}
+.cta span{display:inline-block;transform:skewX(8deg)}
+.cta:hover{background:var(--accent-deep)}
+
+/* ---------- stat band ---------- */
+.stats{background:var(--panel);border-bottom:1px solid var(--line)}
+.stats .wrap{display:grid;grid-template-columns:repeat(4,1fr);gap:18px;padding-block:36px;text-align:center}
+.stat{border-left:1px solid var(--line);padding:4px 8px}
+.stat:first-child{border-left:0}
+.stat .num{font-family:var(--display);font-weight:600;font-size:clamp(34px,4.6vw,52px);color:var(--accent);line-height:1;font-variant-numeric:tabular-nums}
+.stat .num small{font-size:.45em;color:var(--ink);font-weight:500;margin-left:4px;letter-spacing:.04em}
+.stat .lab{font-size:13px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin-top:8px}
+
+/* ---------- sections ---------- */
+section{padding-block:64px}
+.shead{margin-bottom:34px}
+.shead h2{font-size:clamp(28px,4vw,40px);font-weight:600;text-transform:uppercase}
+.shead p{color:var(--muted);margin:8px 0 0;max-width:46em}
+
+/* why electric */
+.why{border-bottom:1px solid var(--line)}
+.cards{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.card{background:var(--panel);border-top:4px solid var(--accent);padding:26px 24px}
+.card .big{font-family:var(--display);font-weight:600;font-size:46px;color:var(--ink);line-height:1;font-variant-numeric:tabular-nums}
+.card .big em{font-style:normal;color:var(--accent)}
+.card h3{font-size:18px;letter-spacing:.06em;text-transform:uppercase;margin:12px 0 8px}
+.card p{margin:0;color:var(--muted);font-size:15.5px}
+
+/* specs */
+.specs{background:var(--band);color:var(--band-ink)}
+.specs .shead h2{color:#fff}
+.specs .shead p{color:#b9b2aa}
+.spec-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:26px}
+.spec-group h3{font-size:15px;letter-spacing:.14em;text-transform:uppercase;color:var(--accent);border-bottom:1px solid #332f2b;padding-bottom:9px;margin-bottom:4px}
+.spec-group dl{margin:0}
+.spec-group .row{display:flex;justify-content:space-between;gap:14px;padding:7px 0;border-bottom:1px solid #26231f;font-size:15px}
+.spec-group dt{color:#b9b2aa;margin:0}
+.spec-group dd{margin:0;font-weight:600;color:#fff;text-align:right;font-variant-numeric:tabular-nums;white-space:nowrap}
+.spec-note{margin-top:26px;font-size:14px;color:#8f8881}
+.spec-intro{display:grid;grid-template-columns:5fr 6fr;gap:32px;align-items:center;margin-bottom:34px}
+.spec-intro .shead{margin-bottom:0}
+.spec-intro .cta{margin-top:24px}
+.spec-van{min-width:0;width:auto;height:auto;max-width:100%;justify-self:center;filter:drop-shadow(0 18px 28px rgba(0,0,0,.45))}
+
+/* conversions */
+.conv{border-bottom:1px solid var(--line)}
+.conv-cols{display:grid;grid-template-columns:1fr 1fr;gap:20px;margin-bottom:34px}
+.conv-col{border:1px solid var(--line);padding:24px}
+.badge{display:inline-block;font-family:var(--display);font-weight:600;font-size:14px;letter-spacing:.12em;text-transform:uppercase;padding:4px 12px;color:#fff;background:var(--ink)}
+.conv-col.als .badge{background:var(--accent)}
+.conv-col h3{font-size:21px;margin:12px 0 6px;text-transform:uppercase;letter-spacing:.03em}
+.conv-col p{color:var(--muted);font-size:15.5px;margin:0}
+.conv table{width:100%;border-collapse:collapse;font-size:15px}
+.conv .tscroll{overflow-x:auto}
+.conv th,.conv td{text-align:left;padding:11px 14px;border-bottom:1px solid var(--line)}
+.conv thead th{font-family:var(--display);font-weight:600;letter-spacing:.08em;text-transform:uppercase;font-size:14px;background:var(--panel)}
+.conv thead th.als-h{color:var(--accent-deep)}
+.conv td.std{font-weight:600}
+.conv td .dot{display:inline-block;width:8px;height:8px;border-radius:50%;background:var(--accent);margin-right:8px;vertical-align:1px}
+.layout-fig{margin:34px 0 0}
+.layout-fig img{width:100%;height:auto;border:1px solid var(--line)}
+.layout-fig figcaption{font-size:13px;color:var(--muted);margin-top:8px}
+
+/* contact */
+.contact{background:var(--band);color:var(--band-ink);padding-block:0}
+.contact-photo{position:relative}
+.contact-photo img{width:100%;height:340px;object-fit:cover;object-position:center 30%}
+.contact-photo .overlay{position:absolute;inset:auto 0 0 0;background:linear-gradient(transparent,rgba(10,10,10,.82))}
+.contact-photo h2{position:absolute;left:0;right:0;bottom:26px;font-size:clamp(26px,4.4vw,42px);color:#fff;text-transform:uppercase;font-weight:600}
+.contact-photo h2 em{font-style:normal;color:var(--accent)}
+.contact-body{padding-block:48px 56px}
+.contact-grid{display:grid;grid-template-columns:5fr 7fr;gap:44px}
+.c-info h3,.c-form h3{font-size:16px;letter-spacing:.14em;text-transform:uppercase;color:var(--accent);margin-bottom:16px}
+.c-info p{margin:0 0 14px;color:#d8d2cb;font-size:15.5px}
+.c-info .lbl{display:block;font-size:12.5px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:#8f8881;margin-bottom:2px}
+.c-form form{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.c-form label{display:block;font-size:12.5px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:#b9b2aa;margin-bottom:5px}
+.c-form input,.c-form textarea{width:100%;background:#1d1a17;border:1px solid #3a3530;color:#fff;padding:11px 12px;font-family:var(--body);font-size:15px}
+.c-form input:focus,.c-form textarea:focus{outline:2px solid var(--accent);outline-offset:0;border-color:var(--accent)}
+.c-form .full{grid-column:1/-1}
+.c-form textarea{min-height:110px;resize:vertical}
+.c-form button{grid-column:1/-1;justify-self:start;background:var(--accent);color:#fff;border:0;font-family:var(--display);font-weight:600;font-size:16px;letter-spacing:.12em;text-transform:uppercase;padding:13px 40px;cursor:pointer;transform:skewX(-8deg)}
+.c-form button span{display:inline-block;transform:skewX(8deg)}
+.c-form button:hover{background:var(--accent-deep)}
+.form-note{grid-column:1/-1;font-size:14px;color:#b9b2aa;margin:0}
+.form-note.ok{color:var(--accent)}
+footer{background:#0b0b0b;color:#8f8881;font-size:13.5px}
+footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;padding-block:18px calc(18px + env(safe-area-inset-bottom,0px))}
+
+/* responsive */
+@media (max-width:900px){
+  .hero-inner{min-height:440px}
+  .hero-bg{object-position:76% center}
+  .hero::after{background:linear-gradient(90deg,rgba(6,6,6,.88) 0%,rgba(6,6,6,.6) 48%,rgba(6,6,6,.18) 80%)}
+  .stats .wrap{grid-template-columns:1fr 1fr;gap:26px 12px}
+  .stat:nth-child(3){border-left:0}
+  .cards{grid-template-columns:1fr}
+  .spec-intro{grid-template-columns:1fr;gap:22px}
+  .conv-cols{grid-template-columns:1fr}
+  .contact-grid{grid-template-columns:1fr}
+  .c-form form{grid-template-columns:1fr}
+}
+@media (max-width:560px){
+  body{font-size:16px}
+  section{padding-block:44px}
+  nav .wrap{gap:10px;min-height:54px}
+  .brand img{height:38px}
+  .navlinks{gap:0;margin-left:-10px}
+  .navlinks a{font-size:12.5px;padding:6px 8px;letter-spacing:.04em}
+  .hero-inner{min-height:400px;padding-block:36px}
+  .hero::after{background:linear-gradient(90deg,rgba(6,6,6,.88) 0%,rgba(6,6,6,.62) 55%,rgba(6,6,6,.3) 100%)}
+  .hero h1{font-size:clamp(28px,10vw,40px)}
+  .hero p.tag{font-size:17px}
+  .stats .wrap{padding-block:26px}
+  .stat .lab{font-size:11.5px;letter-spacing:.06em}
+  .conv th,.conv td{padding:9px 10px;font-size:14px}
+  .contact-photo img{height:220px}
+  .contact-grid{gap:30px}
+  .contact-body{padding-block:36px 44px}
+}
+</style>
+
+<nav class="gutter">
+  <div class="wrap">
+    <a class="brand" href="#top"><img src="img/logo.png" alt="BK Prime Motive Co., Ltd." width="748" height="300"></a>
+    <div class="navlinks">
+      <a href="#why">Why Electric</a>
+      <a href="#specs">Specifications</a>
+      <a href="#conversions">BLS / ALS</a>
+      <a href="#contact">Contact</a>
+    </div>
+  </div>
+</nav>
+
+<header class="hero gutter" id="top">
+  <img class="hero-bg" src="img/hero.webp" alt="Maxus eDeliver 9 EV Ambulance with emergency livery and light bar" width="1983" height="793">
+  <div class="wrap hero-inner">
+    <div class="hero-copy">
+      <span class="kicker">Zero-Emission Medical Fleet</span>
+      <h1>Maxus <span class="model">eDeliver&nbsp;9</span><br>EV Ambulance</h1>
+      <p class="tag">A zero-emission emergency medical vehicle platform — clean, quiet, and built for BLS / ALS conversion on the proven SAIC Maxus L3H2 chassis.</p>
+      <a class="cta" href="#contact"><span>Contact Us</span></a>
+    </div>
+  </div>
+</header>
+
+<div class="stats gutter">
+  <div class="wrap">
+    <div class="stat"><div class="num">445<small>km</small></div><div class="lab">WLTP Urban Range</div></div>
+    <div class="stat"><div class="num">100<small>kWh</small></div><div class="lab">Battery Capacity</div></div>
+    <div class="stat"><div class="num">47<small>min</small></div><div class="lab">DC Fast Charge 10–80%</div></div>
+    <div class="stat"><div class="num">1.49<small>t</small></div><div class="lab">Max Payload</div></div>
+  </div>
+</div>
+
+<section class="why gutter" id="why">
+  <div class="wrap">
+    <div class="shead">
+      <h2>Why an Electric Ambulance</h2>
+      <p>Lower running costs and a cleaner, quieter ride — aligned with the Green Hospital policies of leading private hospitals and the ESG criteria now appearing in public fleet tenders.</p>
+    </div>
+    <div class="cards">
+      <div class="card">
+        <div class="big"><em>−65%</em></div>
+        <h3>Energy Cost</h3>
+        <p>Compared with an equivalent diesel ambulance over the same duty cycle.</p>
+      </div>
+      <div class="card">
+        <div class="big"><em>−60%</em></div>
+        <h3>Maintenance Cost</h3>
+        <p>Fewer moving parts, no engine oil or transmission service, regenerative braking.</p>
+      </div>
+      <div class="card">
+        <div class="big"><em>ESG</em></div>
+        <h3>Green Hospital Ready</h3>
+        <p>Zero tailpipe emissions and low noise — a fit for Green Hospital strategies and energy-efficiency specs in government and private e-bidding.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="specs gutter" id="specs">
+  <div class="wrap">
+    <div class="spec-intro">
+      <div class="shead">
+        <h2>Full Specifications</h2>
+        <p>Maxus eDeliver 9 — L3H2, N2 commercial vehicle (GVW 4.25 t), rear-wheel drive.</p>
+        <a class="cta" id="dl-spec" href="img/spec.jpg" download="Maxus-eDeliver9-Ambulance-Spec-Sheet.jpg" target="_blank" rel="noopener"><span>Download Spec Sheet</span></a>
+      </div>
+      <img class="spec-van" src="img/spec-van.png" alt="Maxus eDeliver 9 Ambulance, front three-quarter view" width="1619" height="971">
+    </div>
+    <div class="spec-grid">
+      <div class="spec-group">
+        <h3>Dimensions</h3>
+        <dl>
+          <div class="row"><dt>Length</dt><dd>5,940 mm</dd></div>
+          <div class="row"><dt>Width</dt><dd>2,062 mm</dd></div>
+          <div class="row"><dt>Height</dt><dd>2,555 mm</dd></div>
+          <div class="row"><dt>Wheelbase</dt><dd>3,760 mm</dd></div>
+          <div class="row"><dt>Cargo volume</dt><dd>11 m³</dd></div>
+          <div class="row"><dt>Seating (cab)</dt><dd>3</dd></div>
+        </dl>
+      </div>
+      <div class="spec-group">
+        <h3>Weight &amp; Payload</h3>
+        <dl>
+          <div class="row"><dt>Gross vehicle weight</dt><dd>4,250 kg</dd></div>
+          <div class="row"><dt>Curb weight</dt><dd>2,760 kg</dd></div>
+          <div class="row"><dt>Max payload</dt><dd>1,490 kg</dd></div>
+          <div class="row"><dt>Gross combination</dt><dd>6,000 kg</dd></div>
+          <div class="row"><dt>Towing (braked)</dt><dd>2,000 kg</dd></div>
+        </dl>
+      </div>
+      <div class="spec-group">
+        <h3>Powertrain</h3>
+        <dl>
+          <div class="row"><dt>Drive type</dt><dd>RWD</dd></div>
+          <div class="row"><dt>Battery (LFP)</dt><dd>100 kWh</dd></div>
+          <div class="row"><dt>Power (cont. / peak)</dt><dd>70 / 170 kW</dd></div>
+          <div class="row"><dt>Torque (cont. / peak)</dt><dd>170 / 330 Nm</dd></div>
+          <div class="row"><dt>Top speed</dt><dd>90 km/h</dd></div>
+        </dl>
+      </div>
+      <div class="spec-group">
+        <h3>Range &amp; Charging</h3>
+        <dl>
+          <div class="row"><dt>WLTP urban</dt><dd>445 km</dd></div>
+          <div class="row"><dt>WLTP combined</dt><dd>370 km</dd></div>
+          <div class="row"><dt>DC 10–80% @ 100 kW</dt><dd>47 min</dd></div>
+          <div class="row"><dt>AC 5–100% @ 11 kW</dt><dd>10.5 h</dd></div>
+          <div class="row"><dt>Battery cooling</dt><dd>Liquid</dd></div>
+          <div class="row"><dt>V2L (vehicle-to-load)</dt><dd>Standard</dd></div>
+        </dl>
+      </div>
+      <div class="spec-group">
+        <h3>Safety &amp; Assistance</h3>
+        <dl>
+          <div class="row"><dt>Stability / braking</dt><dd>ESP · EBA · AEB</dd></div>
+          <div class="row"><dt>Cruise</dt><dd>ACC</dd></div>
+          <div class="row"><dt>Lane &amp; blind spot</dt><dd>LKA · BSM · RCTA</dd></div>
+          <div class="row"><dt>Driver monitoring</dt><dd>DFM · TSR</dd></div>
+          <div class="row"><dt>Cameras</dt><dd>360° + rear</dd></div>
+          <div class="row"><dt>Tyres</dt><dd>TPMS</dd></div>
+        </dl>
+      </div>
+      <div class="spec-group">
+        <h3>Ambulance Conversion</h3>
+        <dl>
+          <div class="row"><dt>12V auxiliary battery</dt><dd>Yes</dd></div>
+          <div class="row"><dt>Bodybuilder interface</dt><dd>Yes</dd></div>
+          <div class="row"><dt>Medical power ports</dt><dd>Dedicated</dd></div>
+          <div class="row"><dt>ePTO / DC-DC</dt><dd>Ready</dd></div>
+          <div class="row"><dt>Lighting &amp; siren</dt><dd>Integrated</dd></div>
+          <div class="row"><dt>Configurations</dt><dd>BLS / ALS</dd></div>
+        </dl>
+      </div>
+    </div>
+    <p class="spec-note">Mounting structure rated to the 10G equipment-anchorage safety standard for medical conversions. The downloadable spec sheet covers the full factory specification — Maxus eDeliver 9 Ambulance L3H2, 100 kWh.</p>
+  </div>
+</section>
+
+<section class="conv gutter" id="conversions">
+  <div class="wrap">
+    <div class="shead">
+      <h2>BLS / ALS Conversions</h2>
+      <p>Two conversion levels on the same platform, built to public-health medical vehicle standards.</p>
+    </div>
+    <div class="conv-cols">
+      <div class="conv-col">
+        <span class="badge">BLS</span>
+        <h3>Basic Life Support</h3>
+        <p>Clearly zoned patient cabin with easy-clean ABS walls, onboard oxygen system, and a complete set of first-response equipment.</p>
+      </div>
+      <div class="conv-col als">
+        <span class="badge">ALS</span>
+        <h3>Advanced Life Support</h3>
+        <p>Adds a powered stretcher, ventilator, advanced defibrillator/monitor, and a negative-pressure ventilation system for infectious-case transport.</p>
+      </div>
+    </div>
+    <div class="tscroll">
+      <table>
+        <thead>
+          <tr><th>Equipment / System</th><th>BLS (Basic)</th><th class="als-h">ALS (Advanced)</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Negative-pressure ventilation</td><td>Optional</td><td class="std"><span class="dot"></span>Standard</td></tr>
+          <tr><td>Patient stretcher</td><td class="std"><span class="dot"></span>Standard</td><td class="std"><span class="dot"></span>Power-load system</td></tr>
+          <tr><td>Defibrillator</td><td>AED only</td><td class="std"><span class="dot"></span>Advanced defibrillator / monitor</td></tr>
+          <tr><td>Oxygen system</td><td>2,000 L with regulator set</td><td>2,000 L with regulator set</td></tr>
+          <tr><td>V2L medical power supply</td><td class="std"><span class="dot"></span>Standard</td><td class="std"><span class="dot"></span>Standard</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <figure class="layout-fig">
+      <img src="img/layout.png" alt="BLS and ALS ambulance interior layout drawings — top, side, front and rear views" width="1792" height="878">
+      <figcaption>Interior layouts — BLS (left) and ALS (right) on the Maxus eDeliver 9 RWD L3H2.</figcaption>
+    </figure>
+  </div>
+</section>
+
+<section class="contact" id="contact">
+  <div class="contact-photo">
+    <img src="img/hospital.jpg" alt="EV ambulance at a hospital entrance" width="1376" height="560">
+    <div class="overlay"></div>
+    <h2 class="gutter"><span class="wrap" style="display:block">The Future of <em>Sustainable Rescue</em></span></h2>
+  </div>
+  <div class="contact-body gutter">
+    <div class="wrap contact-grid">
+      <div class="c-info">
+        <h3>Contact Us</h3>
+        <p><span class="lbl">Company</span>BK Prime Motive Co., Ltd.</p>
+        <p><span class="lbl">Address</span>52/3 Moo 8, Bangbuathong-Suphanburi Rd.,<br>Lahan, Bangbuathong, Nonthaburi, Thailand 11110</p>
+        <p><span class="lbl">Email</span>nopponunya@bkprimemotive.com</p>
+        <p><span class="lbl">Office Hours</span>Monday – Friday, 8:30 – 17:30</p>
+      </div>
+      <div class="c-form">
+        <h3>Send Us a Message</h3>
+        <form id="contact-form">
+          <div><label for="f-name">Name *</label><input id="f-name" required autocomplete="name"></div>
+          <div><label for="f-company">Company / Hospital</label><input id="f-company" autocomplete="organization"></div>
+          <div><label for="f-phone">Phone *</label><input id="f-phone" required autocomplete="tel"></div>
+          <div><label for="f-email">Email *</label><input id="f-email" type="email" required autocomplete="email"></div>
+          <div class="full"><label for="f-msg">Message *</label><textarea id="f-msg" required></textarea></div>
+          <button type="submit"><span>Send</span></button>
+          <p class="form-note" id="form-note">This form is a preview and does not send messages yet — please contact us by email above.</p>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer class="gutter">
+  <div class="wrap">
+    <span>© 2026 BK Prime Motive Co., Ltd. · Maxus eDeliver 9 EV Ambulance Program</span>
+    <span>Zero Emission · Low Operating Cost · Reliable &amp; Safe</span>
+  </div>
+</footer>
+
+<script>
+(function(){
+  var btn=document.getElementById('dl-spec');
+  if(!btn||!window.claude||!window.claude.use)return;
+  window.claude.use('downloads').then(function(dl){
+    if(!dl)return;
+    btn.addEventListener('click',function(e){
+      e.preventDefault();
+      fetch('img/spec.jpg')
+        .then(function(r){if(!r.ok)throw new Error('fetch');return r.blob()})
+        .then(function(b){return dl.save({filename:'Maxus-eDeliver9-Ambulance-Spec-Sheet.jpg',data:b})})
+        .catch(function(){});
+    });
+  });
+})();
+document.getElementById('contact-form').addEventListener('submit',function(e){
+  e.preventDefault();
+  var n=document.getElementById('form-note');
+  n.textContent='Thank you — this preview form does not send messages yet. Please reach us at the email shown on the left.';
+  n.classList.add('ok');
+});
+</script>
